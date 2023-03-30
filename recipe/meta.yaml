@@ -1,4 +1,4 @@
-{% set version = '0.0.9' %}
+{% set version = "0.0.91" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/strawr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/strawr/strawr_{{ version }}.tar.gz
-  sha256: 7f72d26572cee8e7235fe86a935abadafe11156884f3830e880d0937708705bd
+  sha256: 55e06f35613b8cef8405498393e15591c06281004332ad532f6eb8f180b06cd9
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -51,12 +51,10 @@ test:
 about:
   home: https://github.com/aidenlab/straw/tree/master/R
   license: MIT
-  summary: API for fast data extraction for .hic files that provides programmatic access to the
-    matrices. It doesn't store the pointer data for all the matrices, only the one queried,
-    and currently we are only supporting matrices (not vectors).
+  summary: API for fast data extraction for .hic files that provides programmatic access to the matrices. It doesn't store the pointer data for all the matrices, only the one queried, and currently we are only supporting matrices (not vectors).
   license_family: MIT
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
 
 extra:
