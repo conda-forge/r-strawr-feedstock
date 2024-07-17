@@ -1,4 +1,4 @@
-{% set version = "0.0.91" %}
+{% set version = "0.0.92" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/strawr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/strawr/strawr_{{ version }}.tar.gz
-  sha256: 55e06f35613b8cef8405498393e15591c06281004332ad532f6eb8f180b06cd9
+  sha256: fa08b5765a92a75d1fa003cd881daa2ccff129f2cda6b569ae5cd7cd9fbac637
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,7 +22,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
