@@ -1,17 +1,17 @@
-From 48ad7c4279deb5d23df977098be5b84c9321c1c0 Mon Sep 17 00:00:00 2001
+From 4357f1f031a32f078d9863e53b2a68534e845cf2 Mon Sep 17 00:00:00 2001
 From: Mervin Fansler <mervin.fansler@bric.ku.dk>
-Date: Tue, 22 Oct 2024 10:12:51 +0200
+Date: Tue, 22 Oct 2024 10:42:04 +0200
 Subject: [PATCH] add pthread ucrt
 
 ---
- src/Makevars.ucrt | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+ src/Makevars.ucrt | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
 diff --git a/src/Makevars.ucrt b/src/Makevars.ucrt
-index 76d6a15..87e9451 100644
+index 76d6a15..f3b4bf2 100644
 --- a/src/Makevars.ucrt
 +++ b/src/Makevars.ucrt
-@@ -1,12 +1,6 @@
+@@ -1,14 +1,8 @@
 -
 -ifeq (,$(shell pkg-config --version 2>/dev/null))
 -  PKG_LIBS= \
@@ -22,7 +22,10 @@ index 76d6a15..87e9451 100644
 -  PKG_LIBS=$(shell pkg-config --libs libcurl)
 -endif
 -
-+        -lzstd -lgcrypt -lgpg-error -lidn2 -lbcrypt -lunistring -liconv -lws2_32 -pthread
++        -lzstd -lbcrypt -liconv -lws2_32 -pthread
  PKG_CPPFLAGS= \
- 	-DCURL_STATICLIB -DSTRICT_R_HEADERS
+-	-DCURL_STATICLIB -DSTRICT_R_HEADERS
++	-DCURL_STATICLIB -DSTRICT_R_HEADERS -I$(LIBRARY_INC)
+ 
+ all: clean winlibs
 
