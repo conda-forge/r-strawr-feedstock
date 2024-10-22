@@ -1,0 +1,28 @@
+From 48ad7c4279deb5d23df977098be5b84c9321c1c0 Mon Sep 17 00:00:00 2001
+From: Mervin Fansler <mervin.fansler@bric.ku.dk>
+Date: Tue, 22 Oct 2024 10:12:51 +0200
+Subject: [PATCH] add pthread ucrt
+
+---
+ src/Makevars.ucrt | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
+
+diff --git a/src/Makevars.ucrt b/src/Makevars.ucrt
+index 76d6a15..87e9451 100644
+--- a/src/Makevars.ucrt
++++ b/src/Makevars.ucrt
+@@ -1,12 +1,6 @@
+-
+-ifeq (,$(shell pkg-config --version 2>/dev/null))
+-  PKG_LIBS= \
++PKG_LIBS= \
+ 	-lwinhttp -lcurl -lssh2 -lz -lssl -lcrypto -lgdi32 -lcrypt32 -lwldap32 \
+-        -lzstd -lgcrypt -lgpg-error -lidn2 -lbcrypt -lunistring -liconv -lws2_32
+-else
+-  PKG_LIBS=$(shell pkg-config --libs libcurl)
+-endif
+-
++        -lzstd -lgcrypt -lgpg-error -lidn2 -lbcrypt -lunistring -liconv -lws2_32 -pthread
+ PKG_CPPFLAGS= \
+ 	-DCURL_STATICLIB -DSTRICT_R_HEADERS
+
