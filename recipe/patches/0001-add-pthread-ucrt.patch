@@ -25,7 +25,7 @@ index 76d6a15..f3b4bf2 100644
 +        -lzstd -lbcrypt -liconv -lws2_32 -pthread
  PKG_CPPFLAGS= \
 -	-DCURL_STATICLIB -DSTRICT_R_HEADERS
-+	-DCURL_STATICLIB -DSTRICT_R_HEADERS -I"$(shell echo $(LIBRARY_INC) | sed 's|\\|/|g')"
++	-DCURL_STATICLIB -DSTRICT_R_HEADERS -I"$(substr \,/,$(LIBRARY_INC))"
  
  all: clean winlibs
 
