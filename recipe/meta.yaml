@@ -12,7 +12,7 @@ source:
   sha256: fa08b5765a92a75d1fa003cd881daa2ccff129f2cda6b569ae5cd7cd9fbac637
   patches:
     - patches/0001-add-pthread-ucrt.patch
-
+    - patches/0002-add-pthread-ucrt-MD5.patch
 build:
   number: 1
   rpaths:
